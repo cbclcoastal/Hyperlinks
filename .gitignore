@@ -1,0 +1,5 @@
+# Ignore specific project folders
+**00_SS/
+**01_Datasets/
+**02_Functions_CRR/
+# 03_ST_Arrows/
