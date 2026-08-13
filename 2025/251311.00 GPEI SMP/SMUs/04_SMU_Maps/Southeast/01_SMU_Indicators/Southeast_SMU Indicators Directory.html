@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_56e1db54744e22de6fc89bc98d1b1205 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
+</head>
+<body>
+    
+    
+    <div id="custom-button-panel"
+        style="
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 9999;
+            background: white;
+            padding: 10px;
+            border-radius: 6px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+            max-height: 600px;
+            overflow-y: auto;
+            width: 300px;
+        ">
+    <h4 style="margin-top:0;">Southeast SMU Indicators</h4>
+
+    
+        <button
+            onclick="window.open('file:///Y%3A/Halifax/Data/Projects/2025/251311.00%20GPEI%20SMP/40%20Design/00%20COASTAL/07%20Shoreline%20Mgmt%20Units/SMUs/04_SMU_Maps/Southeast/01_SMU_Indicators/Road_m_Flood_100_PD/Southeast_Road_m_Flood_100_PD.html', '_blank')"
+            style="
+                width: 100%;
+                margin-bottom: 6px;
+                padding: 6px;
+                border: 1px solid #888;
+                border-radius: 4px;
+                background: #888888;
+                cursor: pointer;
+            ">
+            7.1) Road Length Flooded - 100yr Present Day
+        </button>
+    
+        <button
+            onclick="window.open('file:///Y%3A/Halifax/Data/Projects/2025/251311.00%20GPEI%20SMP/40%20Design/00%20COASTAL/07%20Shoreline%20Mgmt%20Units/SMUs/04_SMU_Maps/Southeast/01_SMU_Indicators/Road_m_Flood_100_2050/Southeast_Road_m_Flood_100_2050.html', '_blank')"
+            style="
+                width: 100%;
+                margin-bottom: 6px;
+                padding: 6px;
+                border: 1px solid #888;
+                border-radius: 4px;
+                background: #888888;
+                cursor: pointer;
+            ">
+            7.2) Road Length Flooded - 100yr 2050
+        </button>
+    
+        <button
+            onclick="window.open('file:///Y%3A/Halifax/Data/Projects/2025/251311.00%20GPEI%20SMP/40%20Design/00%20COASTAL/07%20Shoreline%20Mgmt%20Units/SMUs/04_SMU_Maps/Southeast/01_SMU_Indicators/Road_m_Flood_100_2080/Southeast_Road_m_Flood_100_2080.html', '_blank')"
+            style="
+                width: 100%;
+                margin-bottom: 6px;
+                padding: 6px;
+                border: 1px solid #888;
+                border-radius: 4px;
+                background: #888888;
+                cursor: pointer;
+            ">
+            7.3) Road Length Flooded - 100yr 2080
+        </button>
+    
+        <button
+            onclick="window.open('file:///Y%3A/Halifax/Data/Projects/2025/251311.00%20GPEI%20SMP/40%20Design/00%20COASTAL/07%20Shoreline%20Mgmt%20Units/SMUs/04_SMU_Maps/Southeast/01_SMU_Indicators/Road_m_Flood_100_2130/Southeast_Road_m_Flood_100_2130.html', '_blank')"
+            style="
+                width: 100%;
+                margin-bottom: 6px;
+                padding: 6px;
+                border: 1px solid #888;
+                border-radius: 4px;
+                background: #888888;
+                cursor: pointer;
+            ">
+            7.4) Road Length Flooded - 100yr 2130
+        </button>
+    
+        <button
+            onclick="window.open('file:///Y%3A/Halifax/Data/Projects/2025/251311.00%20GPEI%20SMP/40%20Design/00%20COASTAL/07%20Shoreline%20Mgmt%20Units/SMUs/04_SMU_Maps/Southeast/01_SMU_Indicators/Road_m_ESM_2050CC/Southeast_Road_m_ESM_2050CC.html', '_blank')"
+            style="
+                width: 100%;
+                margin-bottom: 6px;
+                padding: 6px;
+                border: 1px solid #888;
+                border-radius: 4px;
+                background: #888888;
+                cursor: pointer;
+            ">
+            7.5) Road Length within Erosion zone - Present Day
+        </button>
+    
+        <button
+            onclick="window.open('file:///Y%3A/Halifax/Data/Projects/2025/251311.00%20GPEI%20SMP/40%20Design/00%20COASTAL/07%20Shoreline%20Mgmt%20Units/SMUs/04_SMU_Maps/Southeast/01_SMU_Indicators/Road_m_ESM_2080CC/Southeast_Road_m_ESM_2080CC.html', '_blank')"
+            style="
+                width: 100%;
+                margin-bottom: 6px;
+                padding: 6px;
+                border: 1px solid #888;
+                border-radius: 4px;
+                background: #888888;
+                cursor: pointer;
+            ">
+            7.6) Road Length within Erosion zone - 2050
+        </button>
+    
+        <button
+            onclick="window.open('file:///Y%3A/Halifax/Data/Projects/2025/251311.00%20GPEI%20SMP/40%20Design/00%20COASTAL/07%20Shoreline%20Mgmt%20Units/SMUs/04_SMU_Maps/Southeast/01_SMU_Indicators/Road_m_ESM_2130CC/Southeast_Road_m_ESM_2130CC.html', '_blank')"
+            style="
+                width: 100%;
+                margin-bottom: 6px;
+                padding: 6px;
+                border: 1px solid #888;
+                border-radius: 4px;
+                background: #888888;
+                cursor: pointer;
+            ">
+            7.7) Road Length within Erosion zone - 2080
+        </button>
+    
+        <button
+            onclick="window.open('file:///Y%3A/Halifax/Data/Projects/2025/251311.00%20GPEI%20SMP/40%20Design/00%20COASTAL/07%20Shoreline%20Mgmt%20Units/SMUs/04_SMU_Maps/Southeast/01_SMU_Indicators/Num_Bldg_Flood_100yr_2080/Southeast_Num_Bldg_Flood_100yr_2080.html', '_blank')"
+            style="
+                width: 100%;
+                margin-bottom: 6px;
+                padding: 6px;
+                border: 1px solid #888;
+                border-radius: 4px;
+                background: #888888;
+                cursor: pointer;
+            ">
+            8.3) Buildings Flooded - 100yr RP Event 2080
+        </button>
+    
+        <button
+            onclick="window.open('file:///Y%3A/Halifax/Data/Projects/2025/251311.00%20GPEI%20SMP/40%20Design/00%20COASTAL/07%20Shoreline%20Mgmt%20Units/SMUs/04_SMU_Maps/Southeast/01_SMU_Indicators/Num_Bldg_Flood_100yr_PD/Southeast_Num_Bldg_Flood_100yr_PD.html', '_blank')"
+            style="
+                width: 100%;
+                margin-bottom: 6px;
+                padding: 6px;
+                border: 1px solid #888;
+                border-radius: 4px;
+                background: #888888;
+                cursor: pointer;
+            ">
+            8.3) Buildings Flooded - 100yr RP Event Present
+        </button>
+    
+        <button
+            onclick="window.open('file:///Y%3A/Halifax/Data/Projects/2025/251311.00%20GPEI%20SMP/40%20Design/00%20COASTAL/07%20Shoreline%20Mgmt%20Units/SMUs/04_SMU_Maps/Southeast/01_SMU_Indicators/Num_Bldg_Flood_100yr_2130/Southeast_Num_Bldg_Flood_100yr_2130.html', '_blank')"
+            style="
+                width: 100%;
+                margin-bottom: 6px;
+                padding: 6px;
+                border: 1px solid #888;
+                border-radius: 4px;
+                background: #888888;
+                cursor: pointer;
+            ">
+            8.4) Buildings Flooded - 100yr RP Event 2130
+        </button>
+    
+        <button
+            onclick="window.open('file:///Y%3A/Halifax/Data/Projects/2025/251311.00%20GPEI%20SMP/40%20Design/00%20COASTAL/07%20Shoreline%20Mgmt%20Units/SMUs/04_SMU_Maps/Southeast/01_SMU_Indicators/Num_Bldg_ESM_2080CC/Southeast_Num_Bldg_ESM_2080CC.html', '_blank')"
+            style="
+                width: 100%;
+                margin-bottom: 6px;
+                padding: 6px;
+                border: 1px solid #888;
+                border-radius: 4px;
+                background: #888888;
+                cursor: pointer;
+            ">
+            8.7) Buildings within Erosion zone - 2050
+        </button>
+    
+        <button
+            onclick="window.open('file:///Y%3A/Halifax/Data/Projects/2025/251311.00%20GPEI%20SMP/40%20Design/00%20COASTAL/07%20Shoreline%20Mgmt%20Units/SMUs/04_SMU_Maps/Southeast/01_SMU_Indicators/Num_Bldg_ESM_2130CC/Southeast_Num_Bldg_ESM_2130CC.html', '_blank')"
+            style="
+                width: 100%;
+                margin-bottom: 6px;
+                padding: 6px;
+                border: 1px solid #888;
+                border-radius: 4px;
+                background: #888888;
+                cursor: pointer;
+            ">
+            8.7) Buildings within Erosion zone - 2080
+        </button>
+    
+        <button
+            onclick="window.open('file:///Y%3A/Halifax/Data/Projects/2025/251311.00%20GPEI%20SMP/40%20Design/00%20COASTAL/07%20Shoreline%20Mgmt%20Units/SMUs/04_SMU_Maps/Southeast/02_SMU_Deliniation/01_Tier_1/SMU_Tier_1_map.html', '_blank')"
+            style="
+                width: 100%;
+                margin-bottom: 6px;
+                padding: 6px;
+                border: 1px solid #888;
+                border-radius: 4px;
+                background: #888888;
+                cursor: pointer;
+            ">
+            9) Shoreline Management Units
+        </button>
+    
+        <button
+            onclick="window.open('file:///Y%3A/Halifax/Data/Projects/2025/251311.00%20GPEI%20SMP/40%20Design/00%20COASTAL/07%20Shoreline%20Mgmt%20Units/SMUs/04_SMU_Maps/Southeast/01_SMU_Indicators/WL_100yr_Pres/Southeast_WL_100yr_Pres.html', '_blank')"
+            style="
+                width: 100%;
+                margin-bottom: 6px;
+                padding: 6px;
+                border: 1px solid #888;
+                border-radius: 4px;
+                background: #888888;
+                cursor: pointer;
+            ">
+            9) Total Water Levels - 100yr
+        </button>
+    
+        <button
+            onclick="window.open('file:///Y%3A/Halifax/Data/Projects/2025/251311.00%20GPEI%20SMP/40%20Design/00%20COASTAL/07%20Shoreline%20Mgmt%20Units/SMUs/04_SMU_Maps/Southeast/01_SMU_Indicators/Potential%20Buildings%20Affected/Southeast_Potential%20Buildings%20Affected.html', '_blank')"
+            style="
+                width: 100%;
+                margin-bottom: 6px;
+                padding: 6px;
+                border: 1px solid #888;
+                border-radius: 4px;
+                background: #888888;
+                cursor: pointer;
+            ">
+            9.0) Building Count
+        </button>
+    
+        <button
+            onclick="window.open('file:///Y%3A/Halifax/Data/Projects/2025/251311.00%20GPEI%20SMP/40%20Design/00%20COASTAL/07%20Shoreline%20Mgmt%20Units/SMUs/04_SMU_Maps/Southeast/01_SMU_Indicators/built_up_perc/Southeast_built_up_perc.html', '_blank')"
+            style="
+                width: 100%;
+                margin-bottom: 6px;
+                padding: 6px;
+                border: 1px solid #888;
+                border-radius: 4px;
+                background: #888888;
+                cursor: pointer;
+            ">
+            9.1) Built-up Percentage
+        </button>
+    
+        <button
+            onclick="window.open('file:///Y%3A/Halifax/Data/Projects/2025/251311.00%20GPEI%20SMP/40%20Design/00%20COASTAL/07%20Shoreline%20Mgmt%20Units/SMUs/04_SMU_Maps/Southeast/01_SMU_Indicators/Flood%20Hazard/Southeast_Flood%20Hazard.html', '_blank')"
+            style="
+                width: 100%;
+                margin-bottom: 6px;
+                padding: 6px;
+                border: 1px solid #888;
+                border-radius: 4px;
+                background: #888888;
+                cursor: pointer;
+            ">
+            9.1) Flood Hazard
+        </button>
+    
+        <button
+            onclick="window.open('file:///Y%3A/Halifax/Data/Projects/2025/251311.00%20GPEI%20SMP/40%20Design/00%20COASTAL/07%20Shoreline%20Mgmt%20Units/SMUs/04_SMU_Maps/Southeast/01_SMU_Indicators/z_mean/Southeast_z_mean.html', '_blank')"
+            style="
+                width: 100%;
+                margin-bottom: 6px;
+                padding: 6px;
+                border: 1px solid #888;
+                border-radius: 4px;
+                background: #888888;
+                cursor: pointer;
+            ">
+            9.2) Mean Elevation
+        </button>
+    
+        <button
+            onclick="window.open('file:///Y%3A/Halifax/Data/Projects/2025/251311.00%20GPEI%20SMP/40%20Design/00%20COASTAL/07%20Shoreline%20Mgmt%20Units/SMUs/04_SMU_Maps/Southeast/01_SMU_Indicators/Net_QS/Southeast_Net_QS.html', '_blank')"
+            style="
+                width: 100%;
+                margin-bottom: 6px;
+                padding: 6px;
+                border: 1px solid #888;
+                border-radius: 4px;
+                background: #888888;
+                cursor: pointer;
+            ">
+            9.2) Net Sediment Transport Potential
+        </button>
+    
+        <button
+            onclick="window.open('file:///Y%3A/Halifax/Data/Projects/2025/251311.00%20GPEI%20SMP/40%20Design/00%20COASTAL/07%20Shoreline%20Mgmt%20Units/SMUs/04_SMU_Maps/Southeast/01_SMU_Indicators/road_length/Southeast_road_length.html', '_blank')"
+            style="
+                width: 100%;
+                margin-bottom: 6px;
+                padding: 6px;
+                border: 1px solid #888;
+                border-radius: 4px;
+                background: #888888;
+                cursor: pointer;
+            ">
+            9.2) Road Length
+        </button>
+    
+        <button
+            onclick="window.open('file:///Y%3A/Halifax/Data/Projects/2025/251311.00%20GPEI%20SMP/40%20Design/00%20COASTAL/07%20Shoreline%20Mgmt%20Units/SMUs/04_SMU_Maps/Southeast/01_SMU_Indicators/Abs_Net_QS/Southeast_Abs_Net_QS.html', '_blank')"
+            style="
+                width: 100%;
+                margin-bottom: 6px;
+                padding: 6px;
+                border: 1px solid #888;
+                border-radius: 4px;
+                background: #888888;
+                cursor: pointer;
+            ">
+            9.3) Absolute Sediment Transport Potential
+        </button>
+    
+        <button
+            onclick="window.open('file:///Y%3A/Halifax/Data/Projects/2025/251311.00%20GPEI%20SMP/40%20Design/00%20COASTAL/07%20Shoreline%20Mgmt%20Units/SMUs/04_SMU_Maps/Southeast/01_SMU_Indicators/MEAN_Rate_2000_2020/Southeast_MEAN_Rate_2000_2020.html', '_blank')"
+            style="
+                width: 100%;
+                margin-bottom: 6px;
+                padding: 6px;
+                border: 1px solid #888;
+                border-radius: 4px;
+                background: #888888;
+                cursor: pointer;
+            ">
+            9.4) Mean Erosion Rates 2000-2020
+        </button>
+    
+        <button
+            onclick="window.open('file:///Y%3A/Halifax/Data/Projects/2025/251311.00%20GPEI%20SMP/40%20Design/00%20COASTAL/07%20Shoreline%20Mgmt%20Units/SMUs/04_SMU_Maps/Southeast/01_SMU_Indicators/SARA/Southeast_SARA.html', '_blank')"
+            style="
+                width: 100%;
+                margin-bottom: 6px;
+                padding: 6px;
+                border: 1px solid #888;
+                border-radius: 4px;
+                background: #888888;
+                cursor: pointer;
+            ">
+            Critical habitat (Species At Risk status)
+        </button>
+    
+        <button
+            onclick="window.open('file:///Y%3A/Halifax/Data/Projects/2025/251311.00%20GPEI%20SMP/40%20Design/00%20COASTAL/07%20Shoreline%20Mgmt%20Units/SMUs/04_SMU_Maps/Southeast/01_SMU_Indicators/Longshore%20Risk%20Score%20coastline/Southeast_Longshore%20Risk%20Score%20coastline.html', '_blank')"
+            style="
+                width: 100%;
+                margin-bottom: 6px;
+                padding: 6px;
+                border: 1px solid #888;
+                border-radius: 4px;
+                background: #888888;
+                cursor: pointer;
+            ">
+            Downdrift risk (downdrift shore length and high sediment transport rate)
+        </button>
+    
+        <button
+            onclick="window.open('file:///Y%3A/Halifax/Data/Projects/2025/251311.00%20GPEI%20SMP/40%20Design/00%20COASTAL/07%20Shoreline%20Mgmt%20Units/SMUs/04_SMU_Maps/Southeast/01_SMU_Indicators/Num_Bldg_ESM_2050CC/Southeast_Num_Bldg_ESM_2050CC.html', '_blank')"
+            style="
+                width: 100%;
+                margin-bottom: 6px;
+                padding: 6px;
+                border: 1px solid #888;
+                border-radius: 4px;
+                background: #888888;
+                cursor: pointer;
+            ">
+            Erosion risk (buildings within short-term erosion zone)
+        </button>
+    
+        <button
+            onclick="window.open('file:///Y%3A/Halifax/Data/Projects/2025/251311.00%20GPEI%20SMP/40%20Design/00%20COASTAL/07%20Shoreline%20Mgmt%20Units/SMUs/04_SMU_Maps/Southeast/01_SMU_Indicators/Num_Bldg_Flood_100yr_2050/Southeast_Num_Bldg_Flood_100yr_2050.html', '_blank')"
+            style="
+                width: 100%;
+                margin-bottom: 6px;
+                padding: 6px;
+                border: 1px solid #888;
+                border-radius: 4px;
+                background: #888888;
+                cursor: pointer;
+            ">
+            Flood risk (buildings flooded with 100-year storm event in short-term)
+        </button>
+    
+        <button
+            onclick="window.open('file:///Y%3A/Halifax/Data/Projects/2025/251311.00%20GPEI%20SMP/40%20Design/00%20COASTAL/07%20Shoreline%20Mgmt%20Units/SMUs/04_SMU_Maps/Southeast/01_SMU_Indicators/shoretype/Southeast_shoretype.html', '_blank')"
+            style="
+                width: 100%;
+                margin-bottom: 6px;
+                padding: 6px;
+                border: 1px solid #888;
+                border-radius: 4px;
+                background: #888888;
+                cursor: pointer;
+            ">
+            Shore types
+        </button>
+    
+        <button
+            onclick="window.open('file:///Y%3A/Halifax/Data/Projects/2025/251311.00%20GPEI%20SMP/40%20Design/00%20COASTAL/07%20Shoreline%20Mgmt%20Units/SMUs/04_SMU_Maps/Southeast/01_SMU_Indicators/Backshore%20Trees%20and%20Shrubs%20Presence/Southeast_Backshore%20Trees%20and%20Shrubs%20Presence.html', '_blank')"
+            style="
+                width: 100%;
+                margin-bottom: 6px;
+                padding: 6px;
+                border: 1px solid #888;
+                border-radius: 4px;
+                background: #888888;
+                cursor: pointer;
+            ">
+            Trees and shrubs presence backshore
+        </button>
+    
+    </div>
+    
+    
+    <h3 align="center" style="font-size:20px">
+        Southeast SMU Indicators - Directory
+    </h3>
+    
+    
+            <div class="folium-map" id="map_56e1db54744e22de6fc89bc98d1b1205" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_56e1db54744e22de6fc89bc98d1b1205 = L.map(
+                "map_56e1db54744e22de6fc89bc98d1b1205",
+                {
+                    center: [46.16453372112796, -62.810633308778975],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 11,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_a91e5f2dd0127f6a01acd37f1c125b05 = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+                {"attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e", "detectRetina": false, "maxNativeZoom": 20, "maxZoom": 20, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abcd", "tms": false}
+            );
+        
+    
+            tile_layer_a91e5f2dd0127f6a01acd37f1c125b05.addTo(map_56e1db54744e22de6fc89bc98d1b1205);
+        
+</script>
+</html>
